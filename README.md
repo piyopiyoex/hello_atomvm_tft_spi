@@ -19,8 +19,8 @@ This project uses a **custom breakout board** designed for the XIAO-ESP32S3, wit
 
 Two board revisions are supported:
 
-* **2024-05** — original wiring
-* **2025-12** — same design except LCD CS ↔︎ SD CS are swapped
+- **v1.5 or lower** — original wiring
+- **v1.6 or higher** — same board, except LCD-CS and SD-CS are swapped
 
 These are the boards shown in the photos below.
 
@@ -32,7 +32,7 @@ These are the boards shown in the photos below.
 
 ## Wiring
 
-The table below shows the wiring for the **2024-05** board type.
+Base wiring for **v1.5 (and lower)**:
 
 | Function | XIAO-ESP32S3 pin | ESP32-S3 GPIO |
 | -------- | ---------------- | ------------- |
@@ -45,7 +45,7 @@ The table below shows the wiring for the **2024-05** board type.
 | LCD RST  | D1               | 2             |
 | SD CS    | D3               | 4             |
 
-For the **2025-12** revision, these two lines change:
+For **v1.6 (and higher)**, these two swap:
 
 * **LCD CS → GPIO4**
 * **SD CS → GPIO43**
@@ -58,10 +58,10 @@ For the **2025-12** revision, these two lines change:
 # 1. Install dependencies
 mix deps.get
 
-# 2. Select board type (default: 2025-12)
-export PIYOPIYO_BOARD=2024-05
+# 2. Select board version (default: v1.6)
+export PIYOPIYO_BOARD=v1.5
 # or
-export PIYOPIYO_BOARD=2025-12
+export PIYOPIYO_BOARD=v1.6
 
 # 3. Build the AVM image
 # NOTE: Run `mix clean` whenever you change PIYOPIYO_BOARD.
